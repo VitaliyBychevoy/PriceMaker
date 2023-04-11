@@ -1,6 +1,5 @@
-import openpyxl
-
 from geometry import Shape_Standart
+from db_handler import DB_handler as db
 
 system_list = [
     'Standart', 
@@ -53,10 +52,6 @@ shape_list = {
         'size_a': 0.0
     }
 }
-
-
-
-wb = openpyxl.reader.excel.load_workbook(filename='DB.xlsx', data_only=True)
 
 
 class Machine:
@@ -116,31 +111,6 @@ class Punch:
         self.purchase_price = purchase_price
         self.selling_price = selling_price
 
-    @staticmethod
-    def get_list_type_machine() -> list:
-        wb.active = 2
-        sheet = wb.active
-        list_type_machine = []
-        for item in range(2, 4):
-            list_type_machine.append(sheet['A' + str(item)].value)
-        return list_type_machine
-    
-    @staticmethod
-    def get_list_type_system(type_machine: str=None) -> list:
-        wb.active = 2
-        sheet = wb.active
-        list_type_system = []
-        if type_machine == 'Trumpf':
-            for item in range(2, 9):
-                list_type_system.append(sheet['D' + str(item)].value)
-        elif type_machine == 'Thick Turret':
-            for item in range(2, 4):
-                list_type_system.append(sheet['G' + str(item)].value)
-        else:
-            print('Error type_machine')
-        return list_type_system
-            
-    
 
     def set_type_mashine(self, new_type: str = None) -> None:
         self.type_mashime = new_type
@@ -160,8 +130,7 @@ class Punch:
     def get_punch_name_en(self) -> str:
         return self.punch_name_en
     
-    def set_punch_name_ua(self) -> None:
-        new_punch_name_ua: str = None
+    def set_punch_name_ua(self, new_punch_name_ua: str = None) -> None:
         print("Open Trumpf Stundart")
         print("Make list of punch name ua")
         print("Show list")
