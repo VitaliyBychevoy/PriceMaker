@@ -1,4 +1,4 @@
-from geometry import Shape_Standart
+from geometry import Shape_Standard
 from db_handler import DB_handler as db
 
 system_list = [
@@ -203,7 +203,7 @@ class Punch:
                 'name': "square",
                 'code': "SQ",
                 'A': a,
-                'circumscribed_circle': Shape_Standart.rectangle(a),
+                'circumscribed_circle': Shape_Standard.rectangle(a),
             }
         else:
             print('Error in method set_shape')

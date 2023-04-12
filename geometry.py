@@ -4,7 +4,7 @@ RAD_30 = 30 * math.pi / 180
 RAD_45 = 45 * math.pi / 180
 
 
-class Shape_Standart:
+class Shape_Standard:
 
 
     def equilateral_triangle(side: float)->float:
@@ -19,3 +19,25 @@ class Shape_Standart:
     def hexagon(dimension: float) -> float:
         return round(( 2 * (dimension * 0,5 / (math.cos(RAD_30)))), 3)
 
+class Shape:
+
+    def __init__(
+        self, 
+        shape_name_ua: str = None,
+        shape_name_en: str = None,
+        image: str = None,
+        dimentions: dict = None,
+        circumscribed_circle: float = 0.0,
+        shape_name_ua_full: str=None,
+        shape_name_en_full: str=None,
+        margin: float = None) -> None:
+        self.shape_name_ua = shape_name_ua
+        self.shape_name_en = shape_name_en
+        self.image = image
+        self.dimentions = dimentions
+        self.circumscribed_circle = circumscribed_circle
+        self.shape_name_ua_full = shape_name_ua_full
+        self.shape_name_en_full = shape_name_en_full
+        self.margin = margin
+
+    
