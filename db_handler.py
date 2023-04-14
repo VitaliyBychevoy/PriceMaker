@@ -86,6 +86,11 @@ class DB_handler:
                 return '80.0'
 
 
+class DB_shapes:
+
+    def get_list_shape() -> list:
+        pass
+
 # wb.active = 0
 # sheet = wb.active
 # list_type_machine = []
