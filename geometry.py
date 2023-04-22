@@ -25,7 +25,7 @@ class Shape:
         self, 
         shape_name_ua: str = None,
         shape_name_en: str = None,
-        image: str = None,
+        # image: str = None,
         dimentions: dict = None,
         circumscribed_circle: float = 0.0,
         shape_name_ua_full: str=None,
@@ -33,7 +33,7 @@ class Shape:
         margin: float = None) -> None:
         self.shape_name_ua = shape_name_ua
         self.shape_name_en = shape_name_en
-        self.image = image
+        # self.image = image
         self.dimentions = dimentions
         self.circumscribed_circle = circumscribed_circle
         self.shape_name_ua_full = shape_name_ua_full
@@ -52,11 +52,11 @@ class Shape:
     def get_shape_name_en(self) -> str:
         return self.shape_name_en
     
-    def set_image(self, new_image) -> None:
-        self.image = new_image
+    # def set_image(self, new_image) -> None:
+    #     self.image = new_image
     
-    def get_image(self) -> str:
-        return self.image
+    # def get_image(self) -> str:
+    #     return self.image
     
     def set_dimentions(self, new_dimention: dict) -> None:
         self.dimentions = new_dimention
