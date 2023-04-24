@@ -31,26 +31,26 @@ class Shape:
         shape_name_ua_full: str=None,
         shape_name_en_full: str=None,
         margin: float = None) -> None:
-        self.shape_name_ua = shape_name_ua
-        self.shape_name_en = shape_name_en
+        __self.shape_name_ua = shape_name_ua
+        __self.shape_name_en = shape_name_en
         # self.image = image
-        self.dimentions = dimentions
-        self.circumscribed_circle = circumscribed_circle
-        self.shape_name_ua_full = shape_name_ua_full
-        self.shape_name_en_full = shape_name_en_full
-        self.margin = margin
+        __self.dimentions = dimentions
+        __self.circumscribed_circle = circumscribed_circle
+        __self.shape_name_ua_full = shape_name_ua_full
+        __self.shape_name_en_full = shape_name_en_full
+        __self.margin = margin
 
     def set_shape_name_ua(self, new_shape_name_ua) -> None:
-        self.shape_name_ua = new_shape_name_ua
+        self.__shape_name_ua = new_shape_name_ua
     
-    def set_shape_name_ua(self) -> None:
-        return self.shape_name_ua
+    def get_shape_name_ua(self) -> str:
+        return self.__shape_name_ua
 
     def set_shape_name_en(self, new_shape_name_en) -> None:
-        self.shape_name_en = new_shape_name_en
+        self.__shape_name_en = new_shape_name_en
     
     def get_shape_name_en(self) -> str:
-        return self.shape_name_en
+        return self.__shape_name_en
     
     # def set_image(self, new_image) -> None:
     #     self.image = new_image
@@ -59,27 +59,26 @@ class Shape:
     #     return self.image
     
     def set_dimentions(self, new_dimention: dict) -> None:
-        self.dimentions = new_dimention
+        self.__dimentions = new_dimention
     
     def get_dimentions(self) -> dict:
-        return self.dimentions
+        return self.__dimentions
     
     def set_circumscribed_circle(self, new_dimentions:dict) -> None:
-        pass
-        #self.circumscribed_circle = new_dimentions
+        self.__circumscribed_circle = new_dimentions
     
     def get_circumscribed_circle(self) -> float:
-        return self.circumscribed_circle
+        return self.__circumscribed_circle
     
     def set_shape_name_ua_full(self, new_shape_name_ua: str, dimentions: dict) -> None:
-        self.set_shape_name_ua_full = "Використати get_shape_name_ua() та get_dimentions()"
+        self.__shape_name_ua_full = "Використати get_shape_name_ua() та get_dimentions()"
     
     def get_shape_name_ua_full(self) -> str:
-        return self.shape_name_ua_full
+        return self.__shape_name_ua_full
     
     def set_shape_name_en_full(self, new_shape_name_en: str, dimentions: dict) -> None:
-        self.set_shape_name_ua_full = "Використати get_shape_name_ua() та get_dimentions()"
+        self.__shape_name_en_full = "Використати get_shape_name_ua() та get_dimentions()"
     
     def get_shape_name_en_full(self) -> str:
-        return self.shape_name_en_full
+        return self.__shape_name_en_full
     

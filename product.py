@@ -11,33 +11,33 @@ class Product:
         price: Price = None,
         amount: int = 0,
         ) -> None:
-        self.machine = machine
-        self.tool = tool
-        self.shape = shape
-        self.price = price
-        self.amount = amount
+        self.__machine = machine
+        self.__tool = tool
+        self.__shape = shape
+        self.__price = price
+        self.__amount = amount
     
     def set_machine(self, new_machine: Machine) -> None:
-        self.machine = new_machine
+        self.__machine = new_machine
     
     def get_machine(self) -> Machine:
-        return self.machine
+        return self.__machine
     
     def set_tool(self, new_tool: Tool) -> None:
-        self.tool = new_tool
+        self.__tool = new_tool
     
     def get_tool(self) -> Tool:
-        return self.tool
+        return self.__tool
 
     def set_shape(self, new_shape: Shape) -> None:
-        self.shape = new_shape
+        self.__shape = new_shape
     
     def get_shape(self) -> Shape:
-        return self.shape
+        return self.__shape
     
     def set_amount(self, amount: int) -> None:
-        self.amount = amount
+        self.__amount = amount
     
     def get_amount(self) -> int:
-        return self.amount
+        return self.__amount
     

@@ -59,46 +59,46 @@ class Tool:
     def __init__(
             self,
             machine: Machine = None,
-            name_tool_en: str = None,
-            name_tool_ua: str = None, 
+            tool_name_en: str = None,
+            tool_name_ua: str = None, 
             system: str = None,
             station: str = None
             ) -> None:
-        self.machine = machine 
-        self.name_tool_en = name_tool_en
-        self.name_tool_ua = name_tool_ua
-        self.system = system
-        self.station = station
+        self.__machine = machine 
+        self.__tool_name_en = tool_name_en
+        self.__tool_name_ua = tool_name_ua
+        self.__system = system
+        self.__station = station
 
     def set_machine(self, new_machine: Machine) -> None:
-        self.machine = new_machine
+        self.__machine = new_machine
     
     def get_machine(self) -> Machine:
-        return self.machine
+        return self.__machine
 
-    def set_tool_ua(self, new_name_tool_ua: str) -> None:
-        self.name_tool_ua = new_name_tool_ua
+    def set_tool_ua(self, new_tool_name_ua: str) -> None:
+        self.__tool_name_ua = new_tool_name_ua
     
     def get_tool_ua(self) -> str:
-        return self.name_tool_ua
+        return self.__tool_name_ua
 
-    def set_tool_en(self, new_name_tool_en: str) -> None:
-        self.name_tool_en = new_name_tool_en
+    def set_tool_en(self, new_tool_name_en: str) -> None:
+        self.__tool_name_en = new_tool_name_en
     
     def get_tool_en(self) -> str:
-        return self.name_tool_en
+        return self.__tool_name_en
     
     def set_system(self, new_system: str) -> None:
-        self.system = new_system
+        self.__system = new_system
     
     def get_system(self) -> str:
-        return self.system
+        return self.__system
 
     def set_station(self, new_station) -> None:
-        self.station = new_station
+        self.__station = new_station
     
     def get_station(self) -> str:
-        return self.station
+        return self.__station
     
 
 class Punch(Tool):
