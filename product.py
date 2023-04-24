@@ -1,7 +1,7 @@
 from machine import Machine
 from tool import Tool
 from geometry import Shape
-from price import Price
+
 
 class Product:
     def __init__(self,
