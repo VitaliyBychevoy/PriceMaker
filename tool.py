@@ -82,16 +82,16 @@ class Tool:
     def get_machine(self) -> Machine:
         return self.__machine
 
-    def set_tool_ua(self, new_tool_name_ua: str) -> None:
+    def set_tool_name_ua(self, new_tool_name_ua: str) -> None:
         self.__tool_name_ua = new_tool_name_ua
     
-    def get_tool_ua(self) -> str:
+    def get_tool_name_ua(self) -> str:
         return self.__tool_name_ua
 
-    def set_tool_en(self, new_tool_name_en: str) -> None:
+    def set_tool_name_en(self, new_tool_name_en: str) -> None:
         self.__tool_name_en = new_tool_name_en
     
-    def get_tool_en(self) -> str:
+    def get_tool_name_en(self) -> str:
         return self.__tool_name_en
     
     def set_system(self, new_system: str) -> None:
@@ -269,9 +269,11 @@ class Die(Tool):
                  station: str = None,
                  purchase_price_currency: float = 0.0,
                  selling_price_currency: float = 0.0,
-                 die_shape: Shape = None) -> None:
+                 die_shape: Shape = None,
+                 gap: float = 0.0) -> None:
         super().__init__(machine, system, tool_name_en, tool_name_ua, station, purchase_price_currency, selling_price_currency)
         self.__die_shape = die_shape
+        self.__gap = gap
 
     
     def set_die_shape(self, new_shape: Shape) -> None:
@@ -280,7 +282,12 @@ class Die(Tool):
     def get_die_shape(self) -> Shape:
         return self.__die_shape
     
-        
+    def set_gap(self, new_gap: float) -> None:
+        self.__gap = new_gap
+    
+    def get_gap(self) -> float:
+        return self.__gap
+
 
 
 class Stripper(Tool):
@@ -304,6 +311,17 @@ class Stripper(Tool):
         return self.__stripper_shape
 
 
-p1 = Punch()
-print(p1.get_list_type_machine())
-print(p1.get_list_type_system('Trumpf'))
+item_1 = Die()
+machine_1 = Machine()
+machine_1.set_machine_name_en("Trumpf")
+machine_1.set_model_machine_en("260R")
+item_1.set_machine(machine_1)
+item_1.set_system("Standart")
+item_1.set_tool_name_en("Die Trumpf")
+shape_1 = Shape()
+shape_1.set_shape_name_en("Round")
+shape_1.set_dimentions({"R": 2.0})
+item_1.set_die_shape(shape_1)
+item_1.set_gap(0.3)
+
+print(item_1.get_die_shape)
