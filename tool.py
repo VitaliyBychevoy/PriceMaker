@@ -1,6 +1,6 @@
 from geometry import Shape_Standard
 from geometry import Shape
-from db_handler import DB_handler as db
+#from db_handler import DB_handler as db
 from machine import Machine
 
 system_list = [
@@ -292,8 +292,8 @@ class Die(Tool):
 
 class Stripper(Tool):
     def __init__(self, 
-                 machine: Machine, 
-                 system: str, 
+                 machine: Machine=None, 
+                 system: str=None, 
                  tool_name_en: str = None, 
                  tool_name_ua: str = None, 
                  station: str = None,
@@ -311,10 +311,10 @@ class Stripper(Tool):
         return self.__stripper_shape
 
 
-item_1 = Die()
 machine_1 = Machine()
 machine_1.set_machine_name_en("Trumpf")
 machine_1.set_model_machine_en("260R")
+item_1 = Die(machine=machine_1)
 item_1.set_machine(machine_1)
 item_1.set_system("Standart")
 item_1.set_tool_name_en("Die Trumpf")
