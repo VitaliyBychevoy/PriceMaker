@@ -262,8 +262,8 @@ class Punch(Tool):
 class Die(Tool):
     
     def __init__(self, 
-                 machine: Machine, 
-                 system: str, 
+                 machine: Machine = None, 
+                 system: str = None, 
                  tool_name_en: str = None, 
                  tool_name_ua: str = None, 
                  station: str = None,
@@ -311,17 +311,4 @@ class Stripper(Tool):
         return self.__stripper_shape
 
 
-machine_1 = Machine()
-machine_1.set_machine_name_en("Trumpf")
-machine_1.set_model_machine_en("260R")
-item_1 = Die(machine=machine_1)
-item_1.set_machine(machine_1)
-item_1.set_system("Standart")
-item_1.set_tool_name_en("Die Trumpf")
-shape_1 = Shape()
-shape_1.set_shape_name_en("Round")
-shape_1.set_dimentions({"R": 2.0})
-item_1.set_die_shape(shape_1)
-item_1.set_gap(0.3)
-
-print(item_1.get_die_shape)
+tool_1 = Die()
