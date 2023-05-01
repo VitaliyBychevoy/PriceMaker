@@ -1,4 +1,3 @@
-from geometry import Shape_Standard
 from geometry import Shape
 #from db_handler import DB_handler as db
 from machine import Machine
@@ -74,6 +73,14 @@ class Tool:
         self.__station = station
         self.__purchase_price_currency = purchase_price_currency
         self.__selling_price_currency = selling_price_currency
+    
+
+    def set_purchase_price_currency(self, new_purchase_price_currency) -> None:
+        self.__purchase_price_currency = new_purchase_price_currency
+    
+    def get_purchase_price_currency(self) -> float:
+        return self.__purchase_price_currency
+
 
 
     def set_machine(self, new_machine: Machine) -> None:
@@ -288,6 +295,9 @@ class Die(Tool):
     def get_gap(self) -> float:
         return self.__gap
 
+    def set_purchase_price_currency(self):
+        self.__purchase_price_currency = 19.93
+
 
 
 class Stripper(Tool):
@@ -311,4 +321,11 @@ class Stripper(Tool):
         return self.__stripper_shape
 
 
-tool_1 = Die()
+machine_1 = Machine(machine_name_en = 'Trumpf', model_machine_en= '260R')
+tool_1 = Die(machine=machine_1)
+shape_1 = Shape()
+shape_1.set_shape_name_en('round')
+shape_1.set_dimentions({'a': 3.3})
+shape_1.set_circumscribed_circle()
+
+tool_1.set_die_shape(shape_1)

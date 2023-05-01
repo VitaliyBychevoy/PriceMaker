@@ -31,14 +31,14 @@ class Shape:
         shape_name_ua_full: str=None,
         shape_name_en_full: str=None,
         margin: float = None) -> None:
-        __self.shape_name_ua = shape_name_ua
-        __self.shape_name_en = shape_name_en
+        self.__shape_name_ua = shape_name_ua
+        self.__shape_name_en = shape_name_en
         # self.image = image
-        __self.dimentions = dimentions
-        __self.circumscribed_circle = circumscribed_circle
-        __self.shape_name_ua_full = shape_name_ua_full
-        __self.shape_name_en_full = shape_name_en_full
-        __self.margin = margin
+        self.__dimentions = dimentions
+        self.__circumscribed_circle = circumscribed_circle
+        self.__shape_name_ua_full = shape_name_ua_full
+        self.__shape_name_en_full = shape_name_en_full
+        self.__margin = margin
 
     def set_shape_name_ua(self, new_shape_name_ua) -> None:
         self.__shape_name_ua = new_shape_name_ua
