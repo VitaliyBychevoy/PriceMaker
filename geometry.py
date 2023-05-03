@@ -1,5 +1,8 @@
 import math
 
+from db_handler import DB_shapes as dbs 
+
+
 RAD_30 = 30 * math.pi / 180
 RAD_45 = 45 * math.pi / 180
 
@@ -25,7 +28,7 @@ class Shape:
         self, 
         shape_name_ua: str = None,
         shape_name_en: str = None,
-        # image: str = None,
+        image: str = None,
         dimentions: dict = None,
         circumscribed_circle: float = 0.0,
         shape_name_ua_full: str=None,
@@ -33,52 +36,75 @@ class Shape:
         margin: float = None) -> None:
         self.__shape_name_ua = shape_name_ua
         self.__shape_name_en = shape_name_en
-        # self.image = image
+        self.__image = image
         self.__dimentions = dimentions
         self.__circumscribed_circle = circumscribed_circle
         self.__shape_name_ua_full = shape_name_ua_full
         self.__shape_name_en_full = shape_name_en_full
         self.__margin = margin
 
-    def set_shape_name_ua(self, new_shape_name_ua) -> None:
+
+    def set_shape_name_ua(self, new_shape_name_ua) -> None: #Set user in wiget
         self.__shape_name_ua = new_shape_name_ua
-    
+        
     def get_shape_name_ua(self) -> str:
         return self.__shape_name_ua
 
-    def set_shape_name_en(self, new_shape_name_en) -> None:
+    def set_shape_name_en(self, new_shape_name_en) -> None:#Set in db_hendler with shape_name_ua
         self.__shape_name_en = new_shape_name_en
-    
-    def get_shape_name_en(self) -> str:
+        
+    def get_shape_name_en(self) -> str: 
         return self.__shape_name_en
     
-    # def set_image(self, new_image) -> None:
-    #     self.image = new_image
+    def set_image(self, new_image: str) -> None:
+        self.__image = new_image
+
+    def get_image(self) -> None: # How to public picture in wiget?
+        return self.__image
     
-    # def get_image(self) -> str:
-    #     return self.image
-    
-    def set_dimentions(self, new_dimention: dict) -> None:
-        self.__dimentions = new_dimention
-    
+    def set_dimentions(self, **kwarg) -> None:
+        name = self.get_shape_name_en()
+        if name is None:
+            print("Need shape name")
+        elif name in dbs.get_list_shape(): #How to handle different shapes
+            if name == "round":
+                pass
+            elif name == "square":
+                pass
+            elif name == "rectangle":
+                pass
+        else:
+            print("Invalid name shape.")
+
     def get_dimentions(self) -> dict:
         return self.__dimentions
-    
-    def set_circumscribed_circle(self, new_dimentions:dict) -> None:
-        self.__circumscribed_circle = new_dimentions
-    
+
+    def set_circumscribed_circle(self) -> None:
+        self.__circumscribed_circle = self.count_circumscribed_circle()
+
     def get_circumscribed_circle(self) -> float:
         return self.__circumscribed_circle
     
-    def set_shape_name_ua_full(self, new_shape_name_ua: str, dimentions: dict) -> None:
-        self.__shape_name_ua_full = "Використати get_shape_name_ua() та get_dimentions()"
-    
-    def get_shape_name_ua_full(self) -> str:
+    def set_shape_name_ua_full(self) -> None:
+        pass
+        #self.__shape_name_ua_full = ?
+
+    def get_shape_name_ua_full(self) -> float:
         return self.__shape_name_ua_full
     
-    def set_shape_name_en_full(self, new_shape_name_en: str, dimentions: dict) -> None:
-        self.__shape_name_en_full = "Використати get_shape_name_ua() та get_dimentions()"
+    def set_shape_name_en_full(self) -> None:
+        pass
+        #self.__shape_name_en_full = ?
     
-    def get_shape_name_en_full(self) -> str:
+    def get_shape_name_en_full(self) -> float:
         return self.__shape_name_en_full
-    
+
+    def set_margin(self) -> None:
+        pass
+        #self.__margin = ?
+
+    def get_margin(self) -> float:
+        return self.__margin
+
+    def count_circumscribed_circle(self) -> float:
+        pass
