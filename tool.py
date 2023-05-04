@@ -323,9 +323,3 @@ class Stripper(Tool):
 
 machine_1 = Machine(machine_name_en = 'Trumpf', model_machine_en= '260R')
 tool_1 = Die(machine=machine_1)
-shape_1 = Shape()
-shape_1.set_shape_name_en('round')
-shape_1.set_dimentions({'a': 3.3})
-shape_1.set_circumscribed_circle()
-
-tool_1.set_die_shape(shape_1)
