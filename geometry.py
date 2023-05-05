@@ -1,6 +1,6 @@
 import math
 
-from db_handler import DB_shapes as dbs 
+#from db_handler import DB_shapes as dbs 
 
 
 RAD_30 = 30 * math.pi / 180
@@ -21,6 +21,33 @@ class Shape_Standard:
     
     def hexagon(dimension: float) -> float:
         return round(( 2 * (dimension * 0,5 / (math.cos(RAD_30)))), 3)
+    
+    def oblong(big_side: float, small_side: float) -> float:
+        return big_side if big_side >= small_side else small_side
+    
+    def single_D(diamert: float, height: float) -> float:
+        if diamert > height:
+            return diamert 
+        else:
+            raise ValueError
+        
+    def double_D(diamert: float, height: float) -> float:
+        if diamert > height:
+            return diamert
+        else:
+            raise ValueError
+    
+    def quad_D(diamert: float, dimention: float) -> float:
+        if diamert > dimention:
+            return diamert
+        else:
+            raise ValueError
+    
+    def quad_R(side_a: float, side_b: float, radius: float) -> float:
+        side_a_1 = side_a - (2 * radius)
+        side_b_1 = side_b - (2 * radius)
+        diagonal = round( pow((side_a_1 ** 2) + (side_b_1 ** 2) , 0.5), 3)
+        return diagonal + (2 * radius)
 
 class Shape:
 
@@ -62,19 +89,20 @@ class Shape:
     def get_image(self) -> None: # How to public picture in wiget?
         return self.__image
     
-    def set_dimentions(self, **kwarg) -> None:
-        name = self.get_shape_name_en()
-        if name is None:
-            print("Need shape name")
-        elif name in dbs.get_list_shape(): #How to handle different shapes
-            if name == "round":
-                pass
-            elif name == "square":
-                pass
-            elif name == "rectangle":
-                pass
-        else:
-            print("Invalid name shape.")
+    def set_dimentions(self) -> None:
+        # name = self.get_shape_name_en()
+        # if name is None:
+        #     print("Need shape name")
+        # elif name in dbs.get_list_shape(): #How to handle different shapes
+        #     if name == "round":
+        #         pass
+        #     elif name == "square":
+        #         pass
+        #     elif name == "rectangle":
+        #         pass
+        # else:
+        #     print("Invalid name shape.")
+        pass
 
     def get_dimentions(self) -> dict:
         return self.__dimentions
@@ -108,3 +136,6 @@ class Shape:
 
     def count_circumscribed_circle(self) -> float:
         pass
+
+
+print(Shape_Standard.quad_R(80.0, 50.0, 10.0))
