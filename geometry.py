@@ -57,6 +57,7 @@ class Shape:
         shape_name_en: str = None,
         image: str = None,
         dimentions: dict = None,
+        perimeter: float = None,
         circumscribed_circle: float = 0.0,
         shape_name_ua_full: str=None,
         shape_name_en_full: str=None,
@@ -65,6 +66,7 @@ class Shape:
         self.__shape_name_en = shape_name_en
         self.__image = image
         self.__dimentions = dimentions
+        self.__perimeter = perimeter
         self.__circumscribed_circle = circumscribed_circle
         self.__shape_name_ua_full = shape_name_ua_full
         self.__shape_name_en_full = shape_name_en_full
@@ -106,6 +108,12 @@ class Shape:
 
     def get_dimentions(self) -> dict:
         return self.__dimentions
+    
+    def set_perimeter(self) -> None:
+        self.__perimeter = 0.0
+
+    def get_perimeter(self) -> float:
+        return self.__perimeter
 
     def set_circumscribed_circle(self) -> None:
         self.__circumscribed_circle = self.count_circumscribed_circle()
